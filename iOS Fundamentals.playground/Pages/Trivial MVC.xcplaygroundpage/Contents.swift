@@ -1,19 +1,11 @@
-/*:
- # iOS UI Fundamentals: Trivial MVC in Playground
+/*: 
+ [Previous](@previous) | [Next](@next)
+****
+ # Trivial MVC
  
- **Supported versions:**
- - Swift 3.0.1
- - XCode Version 8.1 (8B62)
+ [Model-View-Controller](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/MVC.html) design pattern is commonly used in choreographying user interface components in a Cocoa application.
  
- The *live view* (i.e. `Timeline`) can be enabled by selecting `View > Assistant Editor > Show Assistant Editor`. then select `Timeline` in `Assistant Editor` if it's not already selected.
  */
-
-// TODO: Model should be updated while the text is being edited, instead of after Return key is pressed (the last character changed is not carried over)
-// TODO: AutoSizing layout instead of stack layout
-// TODO: Animation for text transition in text field and label
-// TODO: Animation for button transition
-// TODO: Explores a different user interaction: Pulse animate button > User click on button > Sync text in text field and label > Text field clears text and becomes first responder > Transition in placeholder as a question mark > Transition in label as a container glyph. Shake animate button when text field input is an empty string
-
 // MARK: Set up for UI in Playground
 import Foundation
 import UIKit
@@ -33,7 +25,7 @@ class MyController: NSObject, UITextFieldDelegate {
             enableButton(name != oldValue)
         }
     }
-
+    
     var textField: UITextField!
     var button: UIButton!
     var label: UILabel!
@@ -56,16 +48,16 @@ class MyController: NSObject, UITextFieldDelegate {
         textField.becomeFirstResponder()
     }
     
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        print("textfield did begin ediding...")
-//    }
-//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-//        return true
-//    }
-//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-//        return true
-//    }
-
+    //    func textFieldDidBeginEditing(_ textField: UITextField) {
+    //        print("textfield did begin ediding...")
+    //    }
+    //    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    //        return true
+    //    }
+    //    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+    //        return true
+    //    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let text = textField.text {
             name = text
@@ -82,7 +74,7 @@ class MyController: NSObject, UITextFieldDelegate {
     }
 }
 
-// MARK: Main
+// MARK: Main app
 
 let controller = MyController()
 
@@ -117,7 +109,7 @@ controller.button = button
 controller.textField.text = controller.name
 controller.label.text = "Tea pot"
 
-
-
-
-
+/*:
+ ****
+ [Previous](@previous) | [Next](@next)
+ */
