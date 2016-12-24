@@ -4,5 +4,6 @@
         <page name='Table of Contents'/>
         <page name='Trivial MVC'/>
         <page name='Smiley Face Button'/>
+        <page name='Five Star Rating Control'/>
     </pages>
 </playground>

@@ -80,7 +80,7 @@ class FaceButton: UIButton {
             if isSelected {
                 self.backgroundColor = UIColor.blue
             }else{
-                self.backgroundColor = UIColor(white: 1, alpha: 0)
+                self.backgroundColor = UIColor.clear
             }
         }
     }
