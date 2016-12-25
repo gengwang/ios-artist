@@ -92,7 +92,7 @@ class FaceButton: UIButton {
     }
 }
 
-//MARK: Main app
+//MARK: Main
 
 let model = MyViewModel.getModel()
 

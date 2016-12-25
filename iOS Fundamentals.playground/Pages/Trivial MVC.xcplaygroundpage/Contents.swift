@@ -7,107 +7,73 @@
  
  */
 // MARK: Set up for UI in Playground
+
 import Foundation
 import UIKit
 import PlaygroundSupport
 
 let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 480, height: 480))
-
-containerView.backgroundColor = UIColor.yellow
-
+containerView.backgroundColor = UIColor.blue
 PlaygroundPage.current.liveView = containerView
 
-// MARK: User interactions
+//MARK: View Controller
 
-class MyController: NSObject, UITextFieldDelegate {
-    var name = "Water" {
-        didSet{
-            enableButton(name != oldValue)
+class MyController: AnyObject {
+    
+    //MAKR: Model
+    
+    var isOn: Bool = false {
+        didSet {
+            updateStates()
         }
     }
     
-    var textField: UITextField!
+    //MARK: Views
+    
+    var toggle: ToggleButton!
     var button: UIButton!
-    var label: UILabel!
+    var swit: UISwitch!
     
-    func buttonClicked(_ sender: AnyObject) {
-        if sender === button {
-            updateUI()
-        }
+    required init(toggle: ToggleButton, button: UIButton, swit: UISwitch) {
+        self.toggle = toggle
+        self.button = button
+        button.setTitle("?", for: .normal)
+        self.swit = swit
+        toggle.addTarget(self, action: #selector(MyController.onToggleTouch(toggleButton:)), for: .touchDown)
+        button.addTarget(self, action: #selector(MyController.onButtonTouch(button:)), for: .touchDown)
+         swit.addTarget(self, action: #selector(MyController.onSwitValueChange(swit:)), for: .valueChanged)
     }
     
-    func enableButton(_ shouldEnable: Bool) {
-        button.alpha = shouldEnable == true ? 1 : 0.2
-        button.isEnabled = shouldEnable
+    // MARK: User interactions
+    
+    @objc func onToggleTouch(toggleButton: ToggleButton) {
+        self.isOn = toggleButton.isOn
+    }
+    @objc func onButtonTouch(button: UIButton) {
+        button.isSelected = !button.isSelected
+        self.isOn = button.isSelected
+    }
+    @objc func onSwitValueChange(swit: UISwitch) {
+        self.isOn = swit.isOn
     }
     
-    func updateUI() {
-        print("updateUI...")
-        label.text = name
-        enableButton(false)
-        textField.becomeFirstResponder()
-    }
-    
-    //    func textFieldDidBeginEditing(_ textField: UITextField) {
-    //        print("textfield did begin ediding...")
-    //    }
-    //    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-    //        return true
-    //    }
-    //    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-    //        return true
-    //    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let text = textField.text {
-            name = text
-        }
-        return true
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        print("text is changing...", textField.text ?? "")
-        if let text = textField.text {
-            name = text
-        }
-        return true
+    private func updateStates() {
+        toggle.isOn = self.isOn
+        swit.setOn(self.isOn, animated: true)
+        let buttonTitle = isOn ? "!" : "?"
+        button.setTitle(buttonTitle, for: .normal)
     }
 }
 
-// MARK: Main app
+//MARK: Main
+let smiley = ToggleButton(onText: "😎", offText: "😶")
+let button = UIButton()
+let swit = UISwitch()
 
-let controller = MyController()
+let stackView = CenterBlock(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+stackView.layout(subviews: [smiley, button, swit], superview: containerView)
 
-let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 120, height: 44))
-textField.borderStyle = .line
-
-let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 32))
-
-let button = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
-button.setTitle("☞", for: .normal)
-button.backgroundColor = UIColor.darkGray
-button.addTarget(controller, action: #selector(MyController.buttonClicked), for: .touchUpInside)
-
-let vLayout = UIStackView(frame: CGRect(x: 20, y: 20, width: 300, height: 44))
-vLayout.axis = .horizontal
-vLayout.distribution = .fillEqually
-vLayout.spacing = 12
-
-vLayout.addArrangedSubview(textField)
-vLayout.addArrangedSubview(button)
-vLayout.addArrangedSubview(label)
-containerView.addSubview(vLayout)
-
-controller.label = label
-controller.textField = textField
-controller.textField.delegate = controller
-controller.button = button
-
-//controller.updateUI()
-
-// Initialize UI
-controller.textField.text = controller.name
-controller.label.text = "Tea pot"
+let controller = MyController(toggle: smiley, button: button, swit: swit)
 
 /*:
  ****
