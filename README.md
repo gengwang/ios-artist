@@ -1,6 +1,6 @@
 # iOS Basics  
 
-*Most of the articles are authored around December, 2016*  
+*Most articles are authored around December, 2016*  
 
 Build Requirements:  
 - Swift version 3.0.2

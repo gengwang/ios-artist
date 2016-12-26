@@ -133,6 +133,7 @@ let centerY = NSLayoutConstraint(item: rating, attribute: .centerY, relatedBy: .
 
 NSLayoutConstraint.activate([centerX, centerY])
 
-/*:****
+/*:
+ ****
  [Previous](@previous) | [Next](@next)
  */

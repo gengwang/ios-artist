@@ -21,12 +21,14 @@ PlaygroundPage.current.liveView = containerView
 class MyCircle: UIView {
     
     private func setup() {
-        // clear the default black background
-        self.backgroundColor = UIColor.clear
+        // To clear the default black background, set the background color property to the "clear" color or isOpaque to false.
+//        self.backgroundColor = UIColor.clear
+        self.isOpaque = false
     }
     // Implements draw(_ rect:) method
     override func draw(_ rect: CGRect) {
             print(rect)
+        
         let path = UIBezierPath(ovalIn: rect)
         UIColor.green.setFill()
         
@@ -54,6 +56,7 @@ let circle = MyCircle(frame: CGRect(x: x, y: y, width: w, height: h))
 
 containerView.addSubview(circle)
 
-/*:****
+/*:
+ ****
  [Previous](@previous) | [Next](@next)
  */

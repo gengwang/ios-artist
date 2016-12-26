@@ -6,5 +6,6 @@
         <page name='Smiley Face Button'/>
         <page name='Five Star Rating Control'/>
         <page name='Green Circle'/>
+        <page name='Touch Events 1'/>
     </pages>
 </playground>
