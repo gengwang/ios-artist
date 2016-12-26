@@ -70,7 +70,7 @@ let smiley = ToggleButton(onText: "😎", offText: "😶")
 let button = UIButton()
 let swit = UISwitch()
 
-let stackView = CenterBlock(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+let stackView = CenterBlock()
 stackView.layout(subviews: [smiley, button, swit], superview: containerView)
 
 let controller = MyController(toggle: smiley, button: button, swit: swit)

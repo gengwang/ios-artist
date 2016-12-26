@@ -3,7 +3,10 @@
  ****
  # Custom Control: Five-Star Rating
  
- Another situation when we need a custom control is to compose multiple controls, in which case the custom control acts as the View Controller and is normally responsible for arranging its subviews and translating user interactions into changes in view states. */
+ Another situation when we need a custom control is to compose multiple controls, in which case the custom control acts as the View Controller and is normally responsible for arranging its subviews and translating user interactions into changes in view states. 
+ 
+ */
+
 //MARK: Set up playground
 
 import Foundation
