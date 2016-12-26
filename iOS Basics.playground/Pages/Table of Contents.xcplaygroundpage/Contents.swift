@@ -1,5 +1,5 @@
 /*: 
-# iOS Fundamentals
+# iOS Basics
 
  - [Trivial MVC](Trivial%20MVC)
  - [Custom Control: Smiley Face Button](Smiley%20Face%20Button)
