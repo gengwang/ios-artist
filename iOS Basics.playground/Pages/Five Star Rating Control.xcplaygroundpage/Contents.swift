@@ -9,7 +9,6 @@
 
 //MARK: Set up playground
 
-import Foundation
 import UIKit
 import PlaygroundSupport
 
