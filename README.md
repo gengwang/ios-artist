@@ -1,4 +1,4 @@
-# iOS Basics  
+# iOS Basics for Artists  
 
 *Most articles are authored around December, 2016*  
 

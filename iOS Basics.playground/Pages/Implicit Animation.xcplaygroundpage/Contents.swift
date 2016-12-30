@@ -31,60 +31,67 @@ class CircleDrawer: UIView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let firstTouch = touches.first {
             
-            // Implicit animations are triggered when we modify the frame, opacity and path properties of a CAShapeLayer object:
+            // Implicit animations are triggered when we modify the position, opacity and path properties of a CAShapeLayer object:
             
             //            UIView.animate(withDuration: 1.0, animations: {
-            self.touchVizLayer.frame.origin = firstTouch.location(in: self)
+            self.touchVizLayer.position = firstTouch.location(in: self)
             self.touchVizLayer.opacity = 1
             
-            let center = CGPoint(x: self.bounds.origin.x - CircleDrawer.BOX_WIDTH / 2, y: self.bounds.origin.y - CircleDrawer.BOX_HEIGHT / 2)
-            let circle = UIBezierPath(ovalIn: CGRect(origin: center, size: CGSize(width: CircleDrawer.BOX_WIDTH, height: CircleDrawer.BOX_HEIGHT)))
+            let circle = UIBezierPath(ovalIn: CGRect(origin: CGPoint.zero, size: CGSize(width: CircleDrawer.BOX_WIDTH, height: CircleDrawer.BOX_HEIGHT)))
             self.touchVizLayer.path = circle.cgPath
-            
             self.touchVizLayer.fillColor = UIColor.purple.cgColor
             //            })
         }
     }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let firstTouch = touches.first {
-            self.touchVizLayer.frame.origin = firstTouch.location(in: self)
+            self.touchVizLayer.position = firstTouch.location(in: self)
         }
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.touchVizLayer.frame.origin = self.center
+        self.touchVizLayer.position = self.center
         self.touchVizLayer.opacity = 0.3
-        let center = CGPoint(x: self.bounds.origin.x - CircleDrawer.BOX_WIDTH / 2, y: self.bounds.origin.y - CircleDrawer.BOX_HEIGHT / 2)
-        let rect = UIBezierPath(rect: CGRect(origin: center, size: CGSize(width: CircleDrawer.BOX_WIDTH, height: CircleDrawer.BOX_HEIGHT)))
+        let rect = UIBezierPath(rect: CGRect(origin: CGPoint.zero, size: CGSize(width: CircleDrawer.BOX_WIDTH, height: CircleDrawer.BOX_HEIGHT)))
         touchVizLayer.path = rect.cgPath
+        touchVizLayer.bounds.size = rect.bounds.size
         touchVizLayer.fillColor = UIColor.darkGray.cgColor
     }
     
     private func setup() {
         let touchVizLayer = CAShapeLayer()
-        let center = CGPoint(x: self.bounds.origin.x - CircleDrawer.BOX_WIDTH / 2, y: self.bounds.origin.y - CircleDrawer.BOX_HEIGHT / 2)
-        let rect = UIBezierPath(rect: CGRect(origin: center, size: CGSize(width: CircleDrawer.BOX_WIDTH, height: CircleDrawer.BOX_HEIGHT)))
+        let rect = UIBezierPath(rect: CGRect(origin: CGPoint.zero, size: CGSize(width: CircleDrawer.BOX_WIDTH, height: CircleDrawer.BOX_HEIGHT)))
         touchVizLayer.path = rect.cgPath
-        touchVizLayer.frame.size = rect.bounds.size
+        // This effectively sets the layer's size as well as it's anchorPoint the center of the bounds (by default, anchorPoint is (x: 0.5, y: 0.5). Without this step, the anchor point would have been CGPoint.zero since the bounds was CGRect.zero.
+        touchVizLayer.bounds.size = rect.bounds.size
+        touchVizLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
-        // debug
-        //        touchVizLayer.borderWidth = 1
-        //        touchVizLayer.borderColor = UIColor.blue.cgColor
-        touchVizLayer.frame.origin = self.center
+        // Debug
+//        touchVizLayer.borderWidth = 1
+        
+        // Move the layer to the center of the host view
+        touchVizLayer.position = self.center
         touchVizLayer.opacity = 0.3
-        // fill the host layer also fill its path
+        // Fill the host layer also fill its path
         touchVizLayer.fillColor = UIColor.darkGray.cgColor
         self.layer.addSublayer(touchVizLayer)
         self.touchVizLayer = touchVizLayer
     }
 }
 
+let rect = CGRect(origin: CGPoint.zero, size: containerView.bounds.size)
 
-let cd = CircleDrawer(frame: CGRect(origin: CGPoint.zero, size: containerView.bounds.size))
+let cd = CircleDrawer(frame: rect)
 cd.backgroundColor = UIColor.white
 cd.isOpaque = true
 
 containerView.addSubview(cd)
 
+// Debug
+let grid = GridView(frame: rect)
+grid.step = rect.width/4
+grid.gridColor = UIColor.lightGray
+grid.isUserInteractionEnabled = false
+containerView.addSubview(grid)
 /*:
  ****
  [Previous](@previous) | [Next](@next)

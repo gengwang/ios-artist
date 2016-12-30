@@ -2,6 +2,110 @@ import Foundation
 import UIKit
 
 /**
+ Return a text layer object representing an Apple emoji glyph.
+ */
+public func emojiLayer(_ string: String) -> CATextLayer {
+    let textLayer = CATextLayer()
+    
+    textLayer.bounds.size = CGSize(width: 44*1.6, height: 44*1.6)
+    // Debug
+    //    textLayer.borderWidth = 1
+    
+    textLayer.font = CTFontCreateWithName("AppleColorEmoji" as CFString?, 0.0, nil)
+    textLayer.string = string
+    textLayer.fontSize = 44
+    // Center text
+    textLayer.alignmentMode = kCAAlignmentCenter
+    // Prevent blurriness
+    textLayer.contentsScale = UIScreen.main.scale
+    return textLayer
+}
+/**
+ Return a shape layer object with a path specified with the points
+ */
+public func lineLayer(_ points: [CGPoint], color: UIColor = UIColor.black, lineWidth: CGFloat = 1.0)-> CAShapeLayer {
+    let path = UIBezierPath()
+    
+    for (index, point) in points.enumerated() {
+        if index == 0 {
+            path.move(to: point)
+        }else {
+            path.addLine(to: point)
+            if index == points.count - 1 {
+                path.addLine(to: points.first!)
+                path.close()
+            }
+        }
+    }
+    let shapeLayer = CAShapeLayer()
+    shapeLayer.path = path.cgPath
+    shapeLayer.fillColor = UIColor.clear.cgColor
+    shapeLayer.strokeColor = color.cgColor
+    shapeLayer.lineWidth = lineWidth
+    shapeLayer.lineDashPattern = [5.0, 6.0]
+    return shapeLayer
+}
+/**
+ The object draws grids inside itself.
+ */
+public class GridView: UIView {
+    public var step: CGFloat = 100.0 {
+        didSet {
+            self.setNeedsDisplay()
+        }
+    }
+    public var gridColor: UIColor = UIColor.gray {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    public var lineWidth: CGFloat = 1 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    override public func draw(_ rect: CGRect) {
+        // clear context before we start drawing
+        let context = UIGraphicsGetCurrentContext()
+        context?.clear(rect)
+        
+        UIColor.clear.setFill()
+        
+        let step = Int(self.step)
+        let bound = max(self.bounds.width, self.bounds.height)
+        
+        for i in stride(from: 0, through: Int(bound), by: step) {
+            // draw horizontal lines
+            let xline = UIBezierPath()
+            xline.lineWidth = lineWidth
+            xline.move(to: CGPoint(x: 0, y: CGFloat(i)))
+            xline.addLine(to: CGPoint(x: bound, y: CGFloat(i)))
+            // draw vertical lines
+            let yline = UIBezierPath()
+            yline.lineWidth = lineWidth
+            yline.move(to: CGPoint(x: CGFloat(i), y: 0))
+            yline.addLine(to: CGPoint(x: CGFloat(i), y: bound))
+            
+            gridColor.setStroke()
+            xline.stroke()
+            yline.stroke()
+        }
+    }
+    // Set background transparent
+    private func setup() {
+        self.isOpaque = false
+    }
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+}
+/**
  This stack view centers the subviews relative to its superview; its subview is horizontally stacked.
  */
 public class CenterBlock: UIStackView {
