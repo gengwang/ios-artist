@@ -10,5 +10,6 @@
         <page name='Implicit Animation'/>
         <page name='Draw Animated Circle'/>
         <page name='Keyframe Animation'/>
+        <page name='Property Observers'/>
     </pages>
 </playground>
