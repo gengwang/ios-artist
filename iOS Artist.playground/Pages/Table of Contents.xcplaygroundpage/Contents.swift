@@ -1,7 +1,7 @@
 /*: 
 # iOS Basics for Artists
 
- - UI Basics
+ - Drawing Basics
     - [Trivial MVC](Trivial%20MVC)
     - [Custom Control: Smiley Face Button](Smiley%20Face%20Button)
     - [Custom Control: Five-Star Rating Control](Five%20Star%20Rating%20Control)
@@ -11,8 +11,12 @@
     - [Animation: Drawing a Circle](Draw%20Animated%20Circle)
     - [Keyframe Animation](Keyframe%20Animation)
 
- - Language Basics
+ - Swift Basics (Standard Library)
     - [Property Observers](Property%20Observers)
+    - [Rock-Paper-Scissors: Random Numbers](Random%20Numbers)
+ 
+ - UIKit Catalog
+    - [Table View](Table%20View)
  
 ****
 [Next](@next)

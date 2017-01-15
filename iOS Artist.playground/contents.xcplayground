@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' display-mode='rendered'>
+<playground version='6.0' target-platform='ios' display-mode='rendered' timelineScrubberEnabled='true'>
     <pages>
         <page name='Table of Contents'/>
         <page name='Trivial MVC'/>
@@ -11,5 +11,7 @@
         <page name='Draw Animated Circle'/>
         <page name='Keyframe Animation'/>
         <page name='Property Observers'/>
+        <page name='Random Numbers'/>
+        <page name='Table View'/>
     </pages>
 </playground>
