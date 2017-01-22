@@ -6,7 +6,7 @@
 
 import Foundation
 
-//:### `willSet(newValue)` and `didSet(oldValue)`
+//: `willSet(newValue)` and `didSet(oldValue)`
 var k = 2 {
     willSet(newValue) {
         print("k: newValue: \(newValue); current value: \(k)")

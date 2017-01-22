@@ -11,5 +11,7 @@
         <page name='Draw Animated Circle'/>
         <page name='Keyframe Animation'/>
         <page name='Property Observers'/>
+        <page name='Random Numbers'/>
+        <page name='Table View'/>
     </pages>
 </playground>
