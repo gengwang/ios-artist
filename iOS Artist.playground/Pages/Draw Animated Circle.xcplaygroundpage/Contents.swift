@@ -5,7 +5,7 @@
  
  The basics for animating a custom drawn view are as follows:
  - An instance of `CAShapeLayer` is added to the view's layer
- - Draw paths as the `CAShapeLayer.path`
+ - One way of custom drawing is to implement the `draw(_ rect: CGRect)` in a view object, in which you draw paths as the `CAShapeLayer.path`
  - To configure the to animation, use `CABasicAnimation(keyPath: "path")` and assign a new path to the `CABasicAnimation.toValue`
  - To start the animation, use `CAShapeLayer.add(CAAnimation forKey)` in the `draw(rect)` method in the view
 

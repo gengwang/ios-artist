@@ -9,6 +9,7 @@
     - [Touch Events 1](Touch%20Events%201)
     - [Implicit Animation](Implicit%20Animation)
     - [Animation: Drawing a Circle](Draw%20Animated%20Circle)
+    - [Plus Button 1](Plus%20Button%201)
     - [Keyframe Animation](Keyframe%20Animation)
 
  - Swift Basics (Standard Library)
