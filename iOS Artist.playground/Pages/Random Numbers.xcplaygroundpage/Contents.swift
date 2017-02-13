@@ -18,11 +18,13 @@ let RPSHands = [ RPSElement.rock,
                  RPSElement.paper,
                  RPSElement.scissors ]
 
-for i in 0...9 {
+(0...9).forEach({
+    (i) in
     /// Generate a UInt32 in the range of [0, 2] and wrap it in an Int so that we can use it as an index for the array
     let index = Int(arc4random_uniform(3))
     let hand = RPSHands[ index ]
-}
+    print("\(i): \(hand)")
+})
 /*:
  ****
  [Previous](@previous) | [Next](@next)
