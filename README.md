@@ -3,3 +3,4 @@
 *Build Requirements:*  
 - Swift version 3.0.2
 - XCode version 8.2.1 (8C1002)
+- MacOS 10.12.3
