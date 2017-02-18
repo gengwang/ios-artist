@@ -11,15 +11,18 @@
     - [Animation: Drawing a Circle](Draw%20Animated%20Circle)
     - [Plus Button 1](Plus%20Button%201)
     - [Keyframe Animation](Keyframe%20Animation)
+ - Composition Basics (Layout)
+    - [Two boxes](Two%20Boxes)
+ 
+ - UI Catalog
+    - [Table View](Table%20View)
+    - [WebKit View](WebKit%20View)
 
  - Swift Basics (Standard Library)
     - [Property Observers](Property%20Observers)
     - [Rock-Paper-Scissors: Random Numbers](Random%20Numbers)
  
- - UI Catalog
-    - [Table View](Table%20View)
-    - [WebKit View](WebKit%20View)
- 
+
 ****
 [Next](@next)
  */
