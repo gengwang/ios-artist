@@ -12,7 +12,8 @@
     - [Plus Button 1](Plus%20Button%201)
     - [Keyframe Animation](Keyframe%20Animation)
  - Composition Basics (Layout)
-    - [Two boxes](Two%20Boxes)
+    - [Two Boxes](Two%20Boxes)
+    - [Three Boxes](Three%20Boxes)
  
  - UI Catalog
     - [Table View](Table%20View)

@@ -233,3 +233,16 @@ public class ToggleButton: UIControl {
         }
     }
 }
+
+/**
+  Convenient methods for UIView
+ */
+public extension UIView {
+    static func viewWith(backgroundColor: UIColor) -> UIView {
+        let v = UIView(frame: .zero)
+        v.backgroundColor = backgroundColor
+        v.layer.cornerRadius = 3
+        v.layer.masksToBounds = true
+        return v
+    }
+}
