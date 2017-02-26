@@ -14,6 +14,7 @@
  - Composition Basics (Layout)
     - [Two Boxes](Two%20Boxes)
     - [Three Boxes](Three%20Boxes)
+    - [Two Boxes Again](Two%20Boxes%20Again)
  
  - UI Catalog
     - [Table View](Table%20View)

@@ -8,6 +8,7 @@
  Resoureces:
  - [WWDC 2014: What's New in Interface Builder](https://developer.apple.com/videos/play/wwdc2014/411/)
  - [Sample Code: AstroLayout](https://developer.apple.com/library/content/samplecode/AstroLayout/Introduction/Intro.html)
+ - [Auto Layout Visual Format Language Tutorial](https://www.raywenderlich.com/110393/auto-layout-visual-format-language-tutorial)
  
 */
 import UIKit
