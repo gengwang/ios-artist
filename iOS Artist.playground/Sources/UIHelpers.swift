@@ -233,6 +233,40 @@ public class ToggleButton: UIControl {
         }
     }
 }
+/** 
+    This object draws a circle in the center of the frame that subtly changes its stroke width when its size changes.
+*/
+public class CircleView: UIView {
+    
+    public var color: UIColor = UIColor.red {
+        didSet{
+            setNeedsDisplay()
+        }
+    }
+    
+    private func setup() {
+        self.isOpaque = false
+    }
+    public override func draw(_ rect: CGRect) {
+        let size = min(rect.width, rect.height)
+        let origin = CGPoint(x: (rect.width - size)/2, y: (rect.height - size)/2)
+        let lineWidth: CGFloat = (size + 120)/14
+        let rect = CGRect(origin: origin, size: CGSize(width: size, height: size)).insetBy(dx: lineWidth/2.0, dy: lineWidth/2.0)
+        let path = UIBezierPath(ovalIn: rect)
+        path.lineWidth = lineWidth
+        self.color.setStroke()
+        path.stroke()
+    }
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+}
 
 /**
   Convenient methods for UIView
