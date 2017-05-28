@@ -11,10 +11,13 @@
     - [Animation: Drawing a Circle](Draw%20Animated%20Circle)
     - [Plus Button 1](Plus%20Button%201)
     - [Keyframe Animation](Keyframe%20Animation)
- - Composition Basics (Layout)
-    - [Two Boxes](Two%20Boxes)
-    - [Three Boxes](Three%20Boxes)
-    - [Two Boxes Again](Two%20Boxes%20Again)
+
+ - Animation Basics
+    - [Understanding Some Basic Core Animation Concepts](Basic%20Animation%20Concepts)
+ 
+ - Swift Basics (Standard Library)
+    - [Property Observers](Property%20Observers)
+    - [Rock-Paper-Scissors: Random Numbers](Random%20Numbers)
  
  - UI Catalog
     - [Table View](Table%20View)
