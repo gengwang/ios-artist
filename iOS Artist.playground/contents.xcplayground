@@ -12,9 +12,13 @@
         <page name='Plus Button 1'/>
         <page name='Keyframe Animation'/>
         <page name='Basic Animation Concepts'/>
+        <page name='Slide to Show'/>
         <page name='Property Observers'/>
         <page name='Random Numbers'/>
         <page name='Table View'/>
         <page name='WebKit View'/>
+        <page name='Three Boxes'/>
+        <page name='Two Boxes Again'/>
+        <page name='Two Boxes'/>
     </pages>
 </playground>

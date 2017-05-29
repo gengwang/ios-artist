@@ -14,6 +14,7 @@
 
  - Animation Basics
     - [Understanding Some Basic Core Animation Concepts](Basic%20Animation%20Concepts)
+    - [Interactive Animation: Slide to Show](Slide%20to%20Show)
  
  - Swift Basics (Standard Library)
     - [Property Observers](Property%20Observers)
