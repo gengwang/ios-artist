@@ -78,7 +78,7 @@ class ViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.changeLayout(gesture:)))
         view.addGestureRecognizer(tap)
     }
-    func changeLayout(gesture: UIGestureRecognizer) {
+    @objc func changeLayout(gesture: UIGestureRecognizer) {
         // Since we are not exposing individual constraint in each state, make sure that we pick a constraint unique to that state
         let twoBoxConstraint = twoBoxConstraints.first
         let threeBoxConstraint = threeBoxConstraints.first

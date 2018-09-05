@@ -5,6 +5,7 @@
     - [Trivial MVC](Trivial%20MVC)
     - [Custom Control: Smiley Face Button](Smiley%20Face%20Button)
     - [Custom Control: Five-Star Rating Control](Five%20Star%20Rating%20Control)
+    - [A Box with Rounded-Corner Shadow](Box%20with%20Rounded-Corner%20Shadow)
     - [Drawing: A Green Circle](Green%20Circle)
     - [Touch Events 1](Touch%20Events%201)
     - [Implicit Animation](Implicit%20Animation)

@@ -98,7 +98,7 @@ class PlusButton: UIControl {
         addTarget(self, action: #selector(PlusButton.touchUpInside(sender:)), for: .touchUpInside)
         addTarget(self, action: #selector(PlusButton.touchDragExit(sender:)), for: .touchDragExit)
     }
-    func touchDown(sender: AnyObject) {
+    @objc func touchDown(sender: AnyObject) {
         circle.isTouchDown = true
         let offset = CGFloat(24)//12
         let w = circleOriginalBounds.width + offset
@@ -119,7 +119,7 @@ class PlusButton: UIControl {
         
         plus.isTouchDown = true
     }
-    func touchUpInside(sender: AnyObject) {
+    @objc func touchUpInside(sender: AnyObject) {
         circle.isTouchDown = false
 //        circle.bounds = circleOriginalBounds
 
@@ -133,7 +133,7 @@ class PlusButton: UIControl {
         
         plus.isTouchDown = false
     }
-    func touchDragExit(sender: AnyObject) {
+    @objc func touchDragExit(sender: AnyObject) {
         circle.isTouchDown = false
         
 //        circle.bounds = circleOriginalBounds

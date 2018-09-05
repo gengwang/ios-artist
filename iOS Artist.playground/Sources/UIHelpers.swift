@@ -10,8 +10,8 @@ public func emojiLayer(_ string: String) -> CATextLayer {
     textLayer.bounds.size = CGSize(width: 44*1.6, height: 44*1.6)
     // Debug
     //    textLayer.borderWidth = 1
-    
-    textLayer.font = CTFontCreateWithName("AppleColorEmoji" as CFString?, 0.0, nil)
+    let fontName: CFString = "AppleColorEmoji" as CFString
+    textLayer.font = CTFontCreateWithName(fontName, 0.0, nil)
     textLayer.string = string
     textLayer.fontSize = 44
     // Center text
@@ -150,17 +150,17 @@ public class ToggleButton: UIControl {
         self.sizeToFit()
         //        invalidateIntrinsicContentSize()
     }
-    private func initialize() {
+   private func initialize() {
         //        self.backgroundColor = UIColor.blue
         self.addTarget(self, action: #selector(onTouch(target:)), for: .touchDown)
         setText(on: "On", off: "Off")
         self.isOn = false
     }
-    private func setText(on:String, off:String) {
+    @objc private func setText(on:String, off:String) {
         self.onText = on
         self.offText = off
     }
-    func onTouch(target:AnyObject) {
+    @objc func onTouch(target:AnyObject) {
         self.isOn = !self.isOn
     }
     public var onText = "On" {

@@ -81,7 +81,7 @@ class RatingControl: UIStackView{
         return CGSize(width: CGFloat(maxRatings) * RatingControl.DEFAULT_ICON_SIZE, height: RatingControl.DEFAULT_ICON_SIZE)
     }
     
-    func onTouch(button: UIButton) {
+    @objc func onTouch(button: UIButton) {
         guard let index = ratingButtons.index(of: button) else {
             fatalError("The button: \(button) is not in the rating buttons array: \(ratingButtons)")
         }

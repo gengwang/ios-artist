@@ -84,7 +84,7 @@ class FaceButton: UIButton {
         }
     }
     // Emulate the behavior of a checkbox
-    func onTouch(sender: UIButton) {
+    @objc func onTouch(sender: UIButton) {
         if sender === self {
             isSelected = !isSelected
         }

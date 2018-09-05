@@ -190,9 +190,8 @@ public class ViewController: UIViewController {
         dLayer.position = CGPoint(x: xPos, y: yPos)
     }
     
-    func handlePan(recognizer: UIPanGestureRecognizer) {
-        
-        if (recognizer.state == UIGestureRecognizerState.ended) {
+    @objc func handlePan(recognizer: UIPanGestureRecognizer) {
+        if (recognizer.state == .ended) {
             print("ended")
         } else {
             // TODO: response to scrubbing direction
